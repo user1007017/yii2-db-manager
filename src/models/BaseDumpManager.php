@@ -19,7 +19,7 @@ abstract class BaseDumpManager implements IDumpManager
     {
         return sprintf('%s%s_%s_%s_%s.%s',
             $basePath,
-            date('Y-m-d_H-i-s'), // added date
+            date('Y-m-d_H-i-s'), // changed date position
             $dbInfo['dbName'],
             ($dumpOptions['schemaOnly'] ? 'schema' : 'full'),
             ($dumpOptions['preset'] ? $dumpOptions['preset'] : 'default'),
