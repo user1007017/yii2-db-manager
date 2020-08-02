@@ -15,14 +15,14 @@ abstract class BaseDumpManager implements IDumpManager
      * @param array $dumpOptions
      * @return string
      */
-    public function makePath($basePath, array $dbInfo, array $dumpOptions)
+  public function makePath($basePath, array $dbInfo, array $dumpOptions)
     {
         return sprintf('%s%s_%s_%s_%s.%s',
             $basePath,
+            date('Y-m-d_H-i-s'), // added date
             $dbInfo['dbName'],
             ($dumpOptions['schemaOnly'] ? 'schema' : 'full'),
             ($dumpOptions['preset'] ? $dumpOptions['preset'] : 'default'),
-            date('Y-m-d_H-i-s'),
             ($dumpOptions['isArchive'] ? 'sql.gz' : 'sql')
         );
     }
